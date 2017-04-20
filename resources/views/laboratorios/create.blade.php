@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-10 form-group">
                     {!! Form::label('rut', 'Rut*', ['class' => 'control-label']) !!}
                     {!! Form::text('rut', old('rut'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -31,9 +31,7 @@
                         </p>
                     @endif
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-2 form-group">
                     {!! Form::label('dv', 'Dv*', ['class' => 'control-label']) !!}
                     {!! Form::text('dv', old('dv'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>

@@ -19,7 +19,8 @@
       
       <script src="http://dashy.strapui.com/laravel/vendor/ckeditor/ckeditor.js" type="text/javascript"></script>
       <script src="http://dashy.strapui.com/laravel/js/app.js" type="text/javascript"></script>
-       <script type="text/javascript" src="{{ asset('js/select2.full.min.js') }}"></script>
+       <script type="text/javascript" src="{{asset('js/select2.full.min.js') }}"></script>
+       <script type="text/javascript" src="{{asset('js/perfect-scrollbar.jquery.js')}}"></script>
       <style>.cke{visibility:hidden;}</style>
       <!-- Scripts -->
       
@@ -32,8 +33,38 @@
     $(document).ready(function() {
     $('.datatable').DataTable( {
          dom: 'Bfrtip',
+          "language": {
+                "url": "dataTables.spanish.lang"
+            },
+         "lengthChange": true,
          buttons: [
-        'copy', 'excel', 'pdf','print'
+        {
+            extend: 'copy',
+            text: 'Copiar',
+            exportOptions: {
+                modifier: {
+                    page: 'all'
+                }
+            }
+        },
+        {
+            extend: 'print',
+            text: 'Imprimir',
+            exportOptions: {
+                modifier: {
+                    page: 'all'
+                }
+            }
+        },
+        {
+            extend: 'pdf',
+            text: 'PDF',
+            exportOptions: {
+                modifier: {
+                    page: 'all'
+                }
+            }
+        }
     ],
         "language": {
             "search":"Buscar:",
@@ -52,11 +83,7 @@
     } );
 } );
 
-new $.fn.dataTable.Buttons( table, {
-    buttons: [
-        'copy', 'excel', 'pdf'
-    ]
-} );
+
 </script>
 
 
@@ -68,6 +95,7 @@ new $.fn.dataTable.Buttons( table, {
       <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.css') }}"/>
       <link rel="stylesheet" type="text/css" href="{{ asset('css/select2.min.css') }}"/>
       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css"/>
+      <link rel="stylesheet" type="text/css" href="{{asset('css/perfect-scrollbar.css')}}">
    </head>
    <body class="page-header-fixed page-quick-sidebar-over-content ">
       <div id="app-container">
@@ -217,7 +245,7 @@ new $.fn.dataTable.Buttons( table, {
                                  <a class="subnav-toggle" href="#"><i class="fa fa-tag "></i> Productos <i class="fa fa-angle-down fa-angle-down  pull-right"></i></a>
                                  <ul class="nav sidenav-sub-menu">
                                     <li><a href=""><i class="fa fa-tag"></i> Registrar Producto</a></li>
-                                    <li><a href=""><i class="fa fa-tag"></i> Listar Productos</a></li>
+                                    <li><a href="http://another.cl/productos"><i class="fa fa-tag"></i> Listar Productos</a></li>
                                     <li><a href=""><i class="fa fa-tag"></i> Presentación Farmacológica</a></li>
                                     <li><a href=""><i class="fa fa-tag"></i> Modo de Uso</a></li>
                                  </ul>
