@@ -168,6 +168,8 @@
                                  <ul class="nav sidenav-sub-menu">
                                     <li><a href=""><i class="fa fa-tag"></i> Registrar Producto</a></li>
                                     <li><a href=""><i class="fa fa-tag"></i> Listar Productos</a></li>
+                                    <li><a href=""><i class="fa fa-tag"></i> Presentación Farmacológica</a></li>
+                                    <li><a href=""><i class="fa fa-tag"></i> Modo de Uso</a></li>
                                  </ul>
                               </li>
 
@@ -1038,9 +1040,12 @@
             </div>
          </div>
       </div>
+
+
       <script src="http://dashy.strapui.com/laravel/js/vendor.js" type="text/javascript"></script>
       <script src="http://dashy.strapui.com/laravel/vendor/ckeditor/ckeditor.js" type="text/javascript"></script>
       <script src="http://dashy.strapui.com/laravel/js/app.js" type="text/javascript"></script>
+    
       <script type="text/javascript">
          $(function(){
          

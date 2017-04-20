@@ -2808,6 +2808,7 @@ select[multiple].form-group-lg .form-control {
     display: inline-block;
     margin-bottom: 0;
     font-weight: normal;
+    font-family: 'Lato', sans-serif;
     text-align: center;
     vertical-align: middle;
     -ms-touch-action: manipulation;
@@ -2816,7 +2817,7 @@ select[multiple].form-group-lg .form-control {
     background-image: none;
     border: 1px solid transparent;
     white-space: nowrap;
-    padding: 6px 12px;
+    padding: 8px 16px;
     font-size: 14px;
     line-height: 1.42857143;
     border-radius: 4px;

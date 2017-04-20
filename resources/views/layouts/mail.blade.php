@@ -1,109 +1,58 @@
-@extends('layouts.app')
-@section('titulo', 'Bienvenido')
-@section('subtitulo', '')
-@section('content')
-
-<div class="row">
-   <div class="col-md-4">
-      <div class="stat panel striped-bg">
-         <div class="row">
-            <div class="col-md-3 bg-info icon-col striped-bg">
-               <i class="fa fa-eye fa-4x"></i>
-            </div>
-            <div class="col-md-9 text-col">
-               <i class="fa fa-eye fa-5x"></i>
-               <h2>5</h2>
-               <p>Órdenes de Compra del día</p>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="col-md-4">
-      <div class="stat panel striped-bg">
-         <div class="row">
-            <div class="col-md-3 bg-warning icon-col striped-bg">
-               <i class="fa fa-bar-chart fa-4x"></i>
-            </div>
-            <div class="col-md-9 text-col">
-               <i class="fa fa-bar-chart fa-5x"></i>
-               <h2>58</h2>
-               <p>Ordenes de compra mes en curso</p>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="col-md-4">
-      <div class="stat panel striped-bg">
-         <div class="row">
-            <div class="col-md-3 bg-danger icon-col striped-bg">
-               <i class="fa fa-calculator fa-4x"></i>
-            </div>
-            <div class="col-md-9 text-col">
-               <i class="fa fa-calculator fa-5x"></i>
-               <h2>$20.000.000</h2>
-               <p>Total Facturado Mensual</p>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-
-<hr>
 <div class="inbox-container-wrap">
    <div class="inbox-container">
       <div class="col email-options ps-container" perfect-scrollbar="" wheel-propagation="true" suppress-scroll-x="true">
          <div class="padding-15">
             <div class="butt-container">
-               <a href="/messages/compose" class="btn btn-primary btn-block btn-rounded">Redactar</a>
+               <a href="/messages/compose" class="btn btn-primary btn-block btn-rounded">Compose</a>
             </div>
             <ul class="main-options">
                <li class="activeli">
                   <a href="/messages/inbox">
-                  <span class="title"> &nbsp; Bandeja de entrada</span>
+                  <span class="title"> &nbsp; Inbox</span>
                   <span class="badge pull-right">10</span>
                   </a>
                </li>
                <li>
                   <a href="/messages/inbox">
-                  <span class="title"> &nbsp; Spam</span>
+                  <span class="title"> &nbsp; Junk Mail</span>
                   </a>
                </li>
                <li>
                   <a href="/messages/inbox">
-                  <span class="title"> &nbsp; Borradores</span>
+                  <span class="title"> &nbsp; Drafts</span>
                   <span class="badge pull-right">16</span>
                   </a>
                </li>
                <li>
                   <a href="">
-                  <span class="title"> &nbsp; Enviados</span>
+                  <span class="title"> &nbsp; Sent</span>
                   </a>
                </li>
                <li>
                   <a href="/messages/inbox">
-                  <span class="title"> &nbsp; Basura</span>
+                  <span class="title"> &nbsp; Trash</span>
                   </a>
                </li>
                <hr class="poor">
                <h5>LABELS</h5>
                <li>
                   <a href="/messages/inbox">
-                  <span class="title"> &nbsp; Clientes <i class="fa fa-stop pull-right faorange"></i></span>
+                  <span class="title"> &nbsp; Clients <i class="fa fa-stop pull-right faorange"></i></span>
                   </a>
                </li>
                <li>
                   <a href="/messages/inbox">
-                  <span class="title"> &nbsp; Empresa <i class="fa fa-stop pull-right fayellow"></i></span>
+                  <span class="title"> &nbsp; Social <i class="fa fa-stop pull-right fayellow"></i></span>
                   </a>
                </li>
                <li>
                   <a href="/messages/inbox">
-                  <span class="title"> &nbsp; Familia <i class="fa fa-stop pull-right facyan"></i></span>
+                  <span class="title"> &nbsp; Family <i class="fa fa-stop pull-right facyan"></i></span>
                   </a>
                </li>
                <li>
                   <a href="/messages/inbox">
-                  <span class="title"> &nbsp; Amigos <i class="fa fa-stop pull-right fapurple"></i></span>
+                  <span class="title"> &nbsp; Friends <i class="fa fa-stop pull-right fapurple"></i></span>
                   </a>
                </li>
             </ul>
@@ -112,8 +61,8 @@
    </div>
    <div class="message-list-wrapper">
       <div class="searchbox">
-         <span class="sebox">Bandeja de Entrada</span> <br>(14 sin leer) <i class="fa fa-envelope-o"></i>
-         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Buscar...">
+         <span class="sebox">Inbox</span> (14 unread) <i class="fa fa-envelope-o"></i>
+         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Search Inbox...">
       </div>
       <div class="wrap-list">
          <div class="messages-list">
@@ -331,9 +280,8 @@
             <p>Sincerely, K. Nakagawa</p>
          </div>
          <div class="messagefooter">
-            <button type="button" class="btn btn-primary btn-rounded pull-right"><i class="fa fa-reply"></i> Responder</button>
+            <button type="button" class="btn btn-primary btn-rounded pull-right"><i class="fa fa-reply"></i> Reply</button>
          </div>
       </div>
    </div>
 </div>
-@endsection
