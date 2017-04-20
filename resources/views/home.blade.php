@@ -2,7 +2,7 @@
 @section('titulo', 'Bienvenido')
 @section('subtitulo', '')
 @section('content')
-
+<h1>Pagar JCB</h1>
 <div class="row">
    <div class="col-md-4">
       <div class="stat panel striped-bg">

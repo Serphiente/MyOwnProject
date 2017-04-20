@@ -4,20 +4,70 @@
       <!-- CSRF Token -->
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <meta charset="utf-8">
-      <title>{{ config('app.name', 'Laravel') }}</title>
+      <!--<title>{{ config('app.name', 'Laravel') }}</title>-->
+      <title>@yield('titulo')</title>
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
       <meta content="" name="description">
       <meta content="" name="author">
-      <link href="{{ asset('css/blue.css') }}" rel="stylesheet">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     
+
+      <script src="http://dashy.strapui.com/laravel/js/vendor.js" type="text/javascript"></script>
+      <script  src="{{ asset('js/jquery-2.2.4.js') }}"></script>
+      <script type="text/javascript" src="{{ asset('js/datatables.js') }}"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+      
+      <script src="http://dashy.strapui.com/laravel/vendor/ckeditor/ckeditor.js" type="text/javascript"></script>
+      <script src="http://dashy.strapui.com/laravel/js/app.js" type="text/javascript"></script>
+       <script type="text/javascript" src="{{ asset('js/select2.full.min.js') }}"></script>
       <style>.cke{visibility:hidden;}</style>
       <!-- Scripts -->
+      
       <script>
          window.Laravel = {!! json_encode([
              'csrfToken' => csrf_token(),
          ]) !!};
       </script>
+       <script type="text/javascript">
+    $(document).ready(function() {
+    $('.datatable').DataTable( {
+         dom: 'Bfrtip',
+         buttons: [
+        'copy', 'excel', 'pdf','print'
+    ],
+        "language": {
+            "search":"Buscar:",
+            "loadingRecords": "Cargando...",
+            "zeroRecords":    "Sin resultados",
+            "paginate": {
+                "first":      "Primero",
+                "last":       "Último",
+                "next":       "Adelante",
+                "previous":   "Atrás"
+            },
+            "infoEmpty":      "Mostrando 0 hasta 0 de un total de  0 resultados",
+            "info":           "Mostrando _START_ - _END_ de un total de _TOTAL_ resultados",
+            "lengthMenu":     "Mostrando _MENU_ resultados",
+        }
+    } );
+} );
+
+new $.fn.dataTable.Buttons( table, {
+    buttons: [
+        'copy', 'excel', 'pdf'
+    ]
+} );
+</script>
+
+
+
+
+ <link href="{{ asset('css/blue.css') }}" rel="stylesheet">
+ <link rel="stylesheet" href="https://raw.githubusercontent.com/t0m/select2-bootstrap-css/bootstrap3/select2-bootstrap.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.css') }}"/>
+      <link rel="stylesheet" type="text/css" href="{{ asset('css/select2.min.css') }}"/>
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css"/>
    </head>
    <body class="page-header-fixed page-quick-sidebar-over-content ">
       <div id="app-container">
@@ -26,7 +76,7 @@
                <div class="navbar-header">
                   <a class="sidenav-toggle" href="#"><span class="brandbar"><i class="fa fa-bars hidd"></i></span></a>
                   <a class="navbar-brand" href="http://another.cl"><i class="fa fa-paper-plane"></i>&nbsp; {{ config('app.name', 'Laravel') }}</a> 
-                  <div class="solution">&gt;&nbsp;Seremos mejores cada día.</div>
+                  <div class="solution">&gt;&gt;&nbsp;Seremos mejores cada día.</div>
                </div>
                <div class="right-admin">
                   <ul>
@@ -176,8 +226,8 @@
                               <li class="sidenav-dropdown">
                                  <a class="subnav-toggle" href="#"><i class="fa fa-truck"></i> Laboratorios <i class="fa fa-angle-down fa-angle-down  pull-right"></i></a>
                                  <ul class="nav sidenav-sub-menu">
-                                    <li><a href=""><i class="fa fa-truck"></i> Registrar Laboratorio</a></li>
-                                    <li><a href=""><i class="fa fa-truck"></i> Listar Laboratorios</a></li>
+                                    <li><a href="http://another.cl/laboratorios/create"><i class="fa fa-truck"></i> Registrar Laboratorio</a></li>
+                                    <li><a href="http://another.cl/laboratorios"><i class="fa fa-truck"></i> Listar Laboratorios</a></li>
                                  </ul>
                               </li>
 
@@ -1032,159 +1082,160 @@
                 </div>
             </div>
             <div id="footer-wrap" class="footer">
-               Copyright © 2014 Dashy Theme
+               Copyright © {{date("Y")}} Droguería Concepción
                <span class="pull-right">
-               <a href="javascript:;"><i class="fa fa-facebook-square"></i></a>
-               <a href="javascript:;">&nbsp;<i class="fa fa-twitter-square"></i></a>
+               <a href="javascript:;"><i class="fa "></i></a>
+               <a href="javascript:;">&nbsp;<i class="fa "></i></a>
                </span>
             </div>
          </div>
       </div>
 
 
-      <script src="http://dashy.strapui.com/laravel/js/vendor.js" type="text/javascript"></script>
-      <script src="http://dashy.strapui.com/laravel/vendor/ckeditor/ckeditor.js" type="text/javascript"></script>
-      <script src="http://dashy.strapui.com/laravel/js/app.js" type="text/javascript"></script>
-    
-      <script type="text/javascript">
-         $(function(){
-         
-         	// Sidebar Charts
-         
-         	// Pie Chart
-         	var chart3 = c3.generate({
-         	   bindto: '#sidebar-piechart',
-         	    data: {
-         	         
-         	        // iris data from R
-         	        columns: [
-         	            ['1', 36],
-         	            ['2', 54],
-         	            ['3', 12],
-         	        ],
-         	        type : 'pie',
-         	        onclick: function (d, i) { console.log("onclick", d, i); },
-         	        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-         	        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-         	    },
-         	    color: {
-         	        pattern: ['#06c5ac','#3faae3','#ee634c','#6bbd95','#f4cc0b','#9b59b6','#16a085','#c0392b']
-         	    },
-         	    pie: {
-         	      expand: true
-         	    },
-         	    size: {
-         	      width: 140,
-         	      height: 140
-         	    },
-         	    tooltip: {
-         	      show: false
-         	    }
-         
-         	});
-         
-         
-         
-         	// Bar Chart
-         	var chart6 = c3.generate({
-         	    bindto: '#sidebar-barchart',
-         	    data: {
-         	        columns: [
-         	            ['data1', 30, 200, 100, 400, 250, 310, 90, 125, 50]
-         	        ],
-         	        type: 'bar'
-         	    },
-         	    bar: {
-         	        width: {
-         	            ratio: 0.8
-         	        }
-         	    },
-         	    size: {
-         	      width: 200,
-         	      height: 120
-         	    },
-         	    tooltip: {
-         	      show: false
-         	    },
-         	    color: {
-         	        pattern: ['#06c5ac','#3faae3','#ee634c','#6bbd95','#f4cc0b','#9b59b6','#16a085','#c0392b']
-         	    },
-         	    axis: {
-         	      y: {
-         	        show: false,
-         	        color: '#ffffff'
-         	      }
-         	}
-         	});
-         
-         
-         	// Sidebar Tabs
-         	$('#navTabs .sidebar-top-nav a').click(function (e) {
-         	 	e.preventDefault()
-         	 	$(this).tab('show');
-         
-         	 	setTimeout(function(){
-         			$('.tab-content-scroller').perfectScrollbar('update');		 		
-         	 	}, 10);
-         
-         	});
-         
-         
-         
-         	$('.subnav-toggle').click(function() {
-         		$(this).parent('.sidenav-dropdown').toggleClass('show-subnav');
-         		$(this).find('.fa-angle-down').toggleClass('fa-flip-vertical');
-         
-         	 	setTimeout(function(){
-         			$('.tab-content-scroller').perfectScrollbar('update');		 		
-         	 	}, 500);
-         
-         	});
-         
-             $('.sidenav-toggle').click(function() {
-                 $('#app-container').toggleClass('push-right');
-         
-         	 	setTimeout(function(){
-         			$('.tab-content-scroller').perfectScrollbar('update');		 		
-         	 	}, 500);
-         
-             });
-         
-         
-             // Boxed Layout Toggle
-         	$('#boxed-layout').click(function() {
-         		
-                 $('body').toggleClass('box-section');
-         
-                 var hasClass = $('body').hasClass('box-section');
-         
-                 $.get('/api/change-layout?layout='+ (hasClass ? 'boxed': 'fluid'));
-         
-         	});
-         
-         
-         
-         	$('.tab-content-scroller').perfectScrollbar();
-         
-         	$('.theme-picker').click(function() {
-         		changeTheme($(this).attr('data-theme'));
-         	});
-         
-         
-         });
-         
-         function changeTheme(theme) {
-         
-         	$('<link>')
-         	  .appendTo('head')
-         	  .attr({type : 'text/css', rel : 'stylesheet'})
-         	  .attr('href', '/css/app-'+theme+'.css');
-         
-         	$.get('api/change-theme?theme='+theme);
-         
-         }
-         
-         
-      </script>
+      
+    <script type="text/javascript">
+
+	$(function(){
+
+		// Sidebar Charts
+
+		// Pie Chart
+		var chart3 = c3.generate({
+		   bindto: '#sidebar-piechart',
+		    data: {
+		         
+		        // iris data from R
+		        columns: [
+		            ['1', 36],
+		            ['2', 54],
+		            ['3', 12],
+		        ],
+		        type : 'pie',
+		        onclick: function (d, i) { console.log("onclick", d, i); },
+		        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+		        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+		    },
+		    color: {
+		        pattern: ['#06c5ac','#3faae3','#ee634c','#6bbd95','#f4cc0b','#9b59b6','#16a085','#c0392b']
+		    },
+		    pie: {
+		      expand: true
+		    },
+		    size: {
+		      width: 140,
+		      height: 140
+		    },
+		    tooltip: {
+		      show: false
+		    }
+
+		});
+
+
+
+		// Bar Chart
+		var chart6 = c3.generate({
+		    bindto: '#sidebar-barchart',
+		    data: {
+		        columns: [
+		            ['data1', 30, 200, 100, 400, 250, 310, 90, 125, 50]
+		        ],
+		        type: 'bar'
+		    },
+		    bar: {
+		        width: {
+		            ratio: 0.8
+		        }
+		    },
+		    size: {
+		      width: 200,
+		      height: 120
+		    },
+		    tooltip: {
+		      show: false
+		    },
+		    color: {
+		        pattern: ['#06c5ac','#3faae3','#ee634c','#6bbd95','#f4cc0b','#9b59b6','#16a085','#c0392b']
+		    },
+		    axis: {
+		      y: {
+		        show: false,
+		        color: '#ffffff'
+		      }
+		}
+		});
+
+
+		// Sidebar Tabs
+		$('#navTabs .sidebar-top-nav a').click(function (e) {
+		 	e.preventDefault()
+		 	$(this).tab('show');
+
+		 	setTimeout(function(){
+				$('.tab-content-scroller').perfectScrollbar('update');		 		
+		 	}, 10);
+
+		});
+
+
+
+		$('.subnav-toggle').click(function() {
+			$(this).parent('.sidenav-dropdown').toggleClass('show-subnav');
+			$(this).find('.fa-angle-down').toggleClass('fa-flip-vertical');
+
+		 	setTimeout(function(){
+				$('.tab-content-scroller').perfectScrollbar('update');		 		
+		 	}, 500);
+
+		});
+
+	    $('.sidenav-toggle').click(function() {
+	        $('#app-container').toggleClass('push-right');
+
+		 	setTimeout(function(){
+				$('.tab-content-scroller').perfectScrollbar('update');		 		
+		 	}, 500);
+
+	    });
+
+
+	    // Boxed Layout Toggle
+		$('#boxed-layout').click(function() {
+			
+	        $('body').toggleClass('box-section');
+
+	        var hasClass = $('body').hasClass('box-section');
+
+	        $.get('/api/change-layout?layout='+ (hasClass ? 'boxed': 'fluid'));
+
+		});
+
+
+
+		$('.tab-content-scroller').perfectScrollbar();
+
+		$('.theme-picker').click(function() {
+			changeTheme($(this).attr('data-theme'));
+		});
+
+
+	});
+
+	function changeTheme(theme) {
+
+		$('<link>')
+		  .appendTo('head')
+		  .attr({type : 'text/css', rel : 'stylesheet'})
+		  .attr('href', '/css/app-'+theme+'.css');
+
+		$.get('api/change-theme?theme='+theme);
+
+	}
+	
+	
+</script>
+<script type="text/javascript">
+    $(".select2-container").select2();
+</script>
    </body>
 </html>

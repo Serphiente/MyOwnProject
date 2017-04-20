@@ -15,7 +15,15 @@ class LaboratoriosController extends Controller
      */
     public function index()
     {
-                return view('laboratorios.index');
+        #$laboratorios = DB::select('SELECT * FROM laboratorios l, comunas c WHERE l.ciudad_id = c.id');
+        #$laboratorios = DB::table('laboratorios')->get();
+        $laboratorios = DB::table('laboratorios')
+        ->join('comunas', 'comunas.id', '=', 'laboratorios.ciudad_id')
+        ->select('laboratorios.*', 'comunas.nombre as nombre_comuna')
+        ->orderBy('comunas.nombre')
+        ->get();
+       
+        return view('laboratorios.index', ['laboratorios' => $laboratorios]);
     }
 
     /**
@@ -25,7 +33,18 @@ class LaboratoriosController extends Controller
      */
     public function create()
     {
-        //
+         $comunas = DB::table('comunas')->get();
+         $comunas_array = array();
+         foreach($comunas as $c){
+            #$productos_array[$p->id] =$p->id . " " . ucwords($p->producto_id)." ".ucwords($p->concentracion . " Caja x " . $p->unidad_envase . " | Lote: ". $p->lote. " | FV: " . $p->fecha_vencimiento);
+            $comunas_array[$c->id] = ucwords($c->nombre);
+        }
+        $relations = [
+            
+           'comunas' => $comunas_array,
+            #'productos' => \App\Recepcionmercaderium::get()->pluck('lote', 'id')->prepend('Please select', ''),
+        ];
+         return view('laboratorios.create',  $relations);
     }
 
     /**
@@ -36,7 +55,8 @@ class LaboratoriosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $laboratorio = Laboratorio::create($request->all());
+        return redirect()->route('laboratorios.index');
     }
 
     /**
