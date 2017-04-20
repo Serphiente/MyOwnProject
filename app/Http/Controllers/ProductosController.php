@@ -11,13 +11,19 @@ class ProductosController extends Controller
      public function index()
     {
 
-        $laboratorios = DB::table('laboratorios')
-        ->join('comunas', 'comunas.id', '=', 'laboratorios.ciudad_id')
-        ->select('laboratorios.*', 'comunas.nombre as nombre_comuna')
-        ->orderBy('comunas.nombre')
-        ->get();
+        #$productos = DB::table('productos')
+        #->join('presentacion_farmacologicas', 'productos.presentacion_id', '=', 'presentacion_farmacologicas.id')
+        #->join('laboratorios', 'productos.laboratorio_id', '=', 'laboratorios.id')
+        #->join('modo_usos', 'productos.modo_uso_id', '=', 'modo_usos.id')
+        #->select('productos.*', 'presentacion_farmacologicas.nombre_corto as pf_nombre','laboratorios.nombre as lab_nombre', 'modo_usos.uso')
+        #->select('productos.*', 'presentacion_farmacologicas.nombre_corto as pf_nombre','modo_usos.uso')
+        #->orderBy('productos.nombre')
+        #->get();
+        $productos = DB::select('SELECT p.nombre, p.concentracion, p.modo_uso_id, p.unidad_envase, p.precio_bodega, p.laboratorio_id, pf.nombre as pf_nombre
+        FROM productos p, presentacion_farmacologicas pf
+        WHERE p.presentacion_id = pf.id');
        
-        return view('laboratorios.index', ['laboratorios' => $laboratorios]);
+        return view('productos.index', ['productos' => $productos]);
     }
 
     /**
@@ -27,18 +33,12 @@ class ProductosController extends Controller
      */
     public function create()
     {
-         $comunas = DB::table('comunas')->get();
-         $comunas_array = array();
-         foreach($comunas as $c){
-            #$productos_array[$p->id] =$p->id . " " . ucwords($p->producto_id)." ".ucwords($p->concentracion . " Caja x " . $p->unidad_envase . " | Lote: ". $p->lote. " | FV: " . $p->fecha_vencimiento);
-            $comunas_array[$c->id] = ucwords($c->nombre);
-        }
         $relations = [
-            
-           'comunas' => $comunas_array,
-            #'productos' => \App\Recepcionmercaderium::get()->pluck('lote', 'id')->prepend('Please select', ''),
+            'laboratorios' => DB::table('laboratorios')->orderBy('nombre')->pluck('nombre', 'id'),
+            'presentacions' => DB::table('presentacion_farmacologicas')->orderBy('nombre')->pluck('nombre', 'id'),
+            'modo_usos' => DB::table('modo_usos')->orderBy('uso')->pluck('uso', 'id'),
         ];
-         return view('laboratorios.create',  $relations);
+        return view('productos.create', $relations);
     }
 
     /**

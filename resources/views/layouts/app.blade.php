@@ -244,7 +244,7 @@
                               <li class="sidenav-dropdown">
                                  <a class="subnav-toggle" href="#"><i class="fa fa-tag "></i> Productos <i class="fa fa-angle-down fa-angle-down  pull-right"></i></a>
                                  <ul class="nav sidenav-sub-menu">
-                                    <li><a href=""><i class="fa fa-tag"></i> Registrar Producto</a></li>
+                                    <li><a href="http://another.cl/productos/create"><i class="fa fa-tag"></i> Registrar Producto</a></li>
                                     <li><a href="http://another.cl/productos"><i class="fa fa-tag"></i> Listar Productos</a></li>
                                     <li><a href=""><i class="fa fa-tag"></i> Presentación Farmacológica</a></li>
                                     <li><a href=""><i class="fa fa-tag"></i> Modo de Uso</a></li>
@@ -1263,7 +1263,7 @@
 	
 </script>
 <script type="text/javascript">
-    $(".select2-container").select2();
+    $(".select2").select2();
 </script>
    </body>
 </html>
