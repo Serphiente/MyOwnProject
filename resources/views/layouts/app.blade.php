@@ -90,7 +90,7 @@
 
 
  <link href="{{ asset('css/blue.css') }}" rel="stylesheet">
- <link rel="stylesheet" href="https://raw.githubusercontent.com/t0m/select2-bootstrap-css/bootstrap3/select2-bootstrap.css">
+ <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/t0m/select2-bootstrap-css/bootstrap3/select2-bootstrap.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.css') }}"/>
       <link rel="stylesheet" type="text/css" href="{{ asset('css/select2.min.css') }}"/>

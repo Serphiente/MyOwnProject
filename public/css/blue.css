@@ -898,7 +898,7 @@ a {
 }
 a:hover,
 a:focus {
-    color: #3a9096;
+    color: #3a9096 !important;
     text-decoration: underline;
 }
 a:focus {
@@ -9078,4 +9078,7 @@ div#charts .transaction .progress .progress-bar {
 .home-page .calendar-wrapper .today {
     text-align: center;
     color: #5cbac0;
+}
+.page-title{
+    margin-top: -7px!important; 
 }
